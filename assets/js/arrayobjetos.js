@@ -160,10 +160,11 @@ ultimaAtencionDental.innerHTML = `${dental[dental.length - 1].PACIENTE} - ${
   dental[dental.length - 1].PREVISION
 }`;
 const table = document.getElementById("table");
-
-
+/* Con For */
 for (let i = 0; i < radiologia.length; i++) {
-  table.innerHTML = table.innerHTML + `<tr>
+  table.innerHTML =
+    table.innerHTML +
+    `<tr>
            <td> ${radiologia[i].HORA} </td>
            <td> ${radiologia[i].ESPECIALISTA} </td>
            <td>${radiologia[i].PACIENTE} </td>
@@ -172,49 +173,30 @@ for (let i = 0; i < radiologia.length; i++) {
            <td>RADIOLOGIA</td>
            </tr>`;
 }
-
-for (let i = 0; i < traumalogia.length; i++) {
-  table.innerHTML = table.innerHTML + `<tr>
-           <td> ${traumalogia[i].HORA} </td>
-           <td> ${traumalogia[i].ESPECIALISTA} </td>
-           <td>${traumalogia[i].PACIENTE} </td>
-           <td>${traumalogia[i].RUT} </td>
-           <td>${traumalogia[i].PREVISION} </td>
-           <td>TRAUMATOLOGIA</td>
-           </tr>`;
-}
-
-for (let i = 0; i < dental.length; i++) {
-   table.innerHTML = table.innerHTML + `<tr>
-            <td> ${dental[i].HORA} </td>
-            <td> ${dental[i].ESPECIALISTA} </td>
-            <td>${dental[i].PACIENTE} </td>
-            <td>${dental[i].RUT} </td>
-            <td>${dental[i].PREVISION} </td>
-            <td>DENTAL</td>
-            </tr>`;
-}
-
-/* table.innerHTML = `<tr><td>HORA</td>
-<td>ESPECIALISTA</td>
-<td>PACIENTE</td>
-<td>@RUT</td>
-<td>PREVISION</td>
-</tr>`; */
-
-/* dental.forEach(element =>table.innerHTML = `<tr>
+/* Con foreach */
+traumalogia.forEach((element) => {
+  table.innerHTML =
+    table.innerHTML +
+    `<tr>
 <td> ${element.HORA} </td>
 <td> ${element.ESPECIALISTA} </td>
 <td>${element.PACIENTE} </td>
 <td>${element.RUT} </td>
 <td>${element.PREVISION} </td>
-</tr>`); */
-{
-  /* <tr>
-          <td>HORA</td>
-          <td>ESPECIALISTA</td>
-          <td>PACIENTE</td>
-          <td>@RUT</td>
-          <td>PREVISION</td>
-</tr> */
-}
+<td>TRAUMATOLOGIA</td>
+</tr>`;
+});
+/* Con Map */
+const recorre = dental.map(function (element) {
+  table.innerHTML =
+  table.innerHTML +
+  `<tr>
+          <td> ${element.HORA} </td>
+          <td> ${element.ESPECIALISTA} </td>
+          <td>${element.PACIENTE} </td>
+          <td>${element.RUT} </td>
+          <td>${element.PREVISION} </td>
+          <td>DENTAL</td>
+          </tr>`;
+  return;
+});
